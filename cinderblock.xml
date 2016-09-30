@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+  <block 
+  	name="ciGif" 
+  	id="com.sharkbox.animatedgif"
+  	author="Charlie Whitney"
+  	summary="A library for accurate playback of animated gifs"
+	git="https://github.com/cwhitney/ciAnimatedGif"
+  	>
+	<supports os="macosx" />
+	<supports os="msw" />
+	
+	<headerPattern>src/*.h</headerPattern>
+	<sourcePattern>src/*.cpp</sourcePattern>
+
+	<includePath>src</includePath>
+  </block>
+</cinder>
