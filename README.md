@@ -2,7 +2,7 @@
 A library for playing back Animated Gifs in Cinder 0.9.0
 
 ### Why
-Gifs are a common enough format that I am asked often to include them in projects despite the format is pretty old fashioned.  They are unique in that each frame can have it's own timing between frames. Since there wasn't a simple library I found that could handle this, I wrote this.
+Gifs are a common enough format that I am often asked to include them in projects despite the format being pretty old fashioned and not particularly suited to desktop applications.  They are unique in that each frame can have it's own timing between frames. Since there wasn't a simple library I found that could handle this, the block was born.
 
 ### Setup
 Setup is super easy, simply add the files to your project, or use TinderBox when you set up your project initially.
