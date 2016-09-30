@@ -15,6 +15,6 @@ mGif = ciAnimatedGif::create( loadAsset("someGif.gif") );
 mGif->draw();
 ```
 
-If a gif uses a global palette (which is not guaranteed, but common) you can also access it with `mGif->getPalette();` which will return a `std::vector\<ci::Color\>`.
+If a gif uses a global palette (which is not guaranteed, but common) you can also access it with `mGif->getPalette();` which will return a `std::vector<ci::Color>`.
 
 See the sample project for use, and check out [http://giflib.sourceforge.net/whatsinagif/bits_and_bytes.html](http://giflib.sourceforge.net/whatsinagif/bits_and_bytes.html) for more information about what is under the hood of a gif.
