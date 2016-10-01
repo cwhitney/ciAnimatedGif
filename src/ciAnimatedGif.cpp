@@ -1,3 +1,4 @@
+#include "cinder/gl/gl.h"
 #include "ciAnimatedGif.h"
 
 using namespace ci;
