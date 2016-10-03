@@ -11,6 +11,7 @@ class ciAnimatedGif {
     ciAnimatedGif(ci::DataSourceRef data);
     
     static ciAnimatedGifRef create(ci::DataSourceRef data){ return std::make_shared<ciAnimatedGif>(data); }
+    static ciAnimatedGifRef create( const cinder::fs::path &path){ return ciAnimatedGif::create( (cinder::DataSourceRef)cinder::DataSourcePath::create( path )); }
     
     void update();
     void draw();
@@ -18,6 +19,8 @@ class ciAnimatedGif {
     void seek( float pct );
     
     const std::vector<ci::Color> getPalette(){ return mColorList; };
+    
+    ci::gl::TextureRef              getTexture();
     
   protected:
     
