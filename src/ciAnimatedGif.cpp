@@ -17,7 +17,7 @@ ciAnimatedGif::ciAnimatedGif(ci::DataSourceRef data)
     
     for( int i = 0; i < numFrames; ++i ) {
         SurfaceRef frame = Surface::create( loadImage(data, options) );
-        mFrameList.push_back( frame );
+        mFrameList.push_back( gl::Texture::create(*frame) );
         options.index( options.getIndex() + 1 );
     }
     
@@ -99,11 +99,6 @@ void ciAnimatedGif::printBit(uint8_t byte)
             << endl;
 }
 
-ci::gl::TextureRef   ciAnimatedGif::getTexture()
-{
-    return mCurTex;
-}
-
 void ciAnimatedGif::update()
 {
     while( getElapsedSeconds() > mNextFrameTime ){
@@ -114,7 +109,7 @@ void ciAnimatedGif::update()
 
         mNextFrameTime += mFrameTimes[glm::clamp<int>(mCurFrame, 0, mFrameTimes.size()-1)];
     }
-    mCurTex = gl::Texture::create( *mFrameList[mCurFrame] );
+    mCurTex = mFrameList[mCurFrame];
 }
 
 void ciAnimatedGif::draw()

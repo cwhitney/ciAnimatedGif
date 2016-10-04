@@ -20,14 +20,14 @@ class ciAnimatedGif {
     
     const std::vector<ci::Color> getPalette(){ return mColorList; };
     
-    ci::gl::TextureRef              getTexture();
+    ci::gl::TextureRef              getTexture(){ return mCurTex; }
     
   protected:
     
     void parseMetadata(ci::DataSourceRef data);
     void printBit(uint8_t byte);
     
-    std::vector<ci::SurfaceRef>     mFrameList;
+    std::vector<ci::gl::TextureRef> mFrameList;
     std::vector<float>              mFrameTimes;
     
     double                          mNextFrameTime = -1;
