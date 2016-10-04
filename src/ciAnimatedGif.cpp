@@ -114,12 +114,13 @@ void ciAnimatedGif::update()
 
         mNextFrameTime += mFrameTimes[glm::clamp<int>(mCurFrame, 0, mFrameTimes.size()-1)];
     }
+    mCurTex = gl::Texture::create( *mFrameList[mCurFrame] );
 }
 
 void ciAnimatedGif::draw()
 {
     update();
-    mCurTex = gl::Texture::create( *mFrameList[mCurFrame] );
+
     gl::draw(mCurTex);
     
 }
