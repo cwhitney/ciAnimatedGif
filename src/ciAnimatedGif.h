@@ -1,7 +1,9 @@
 #pragma once
 
 #include "cinder/app/App.h"
-#include "cinder/gl/Texture.h"
+#include "cinder/gl/gl.h"
+
+namespace cinder {
 
 using ciAnimatedGifRef = std::shared_ptr<class ciAnimatedGif>;
 
@@ -40,3 +42,5 @@ class ciAnimatedGif {
     bool                            hasGlobalColorTable = false;
     std::vector<ci::Color>          mColorList;
 };
+
+}
