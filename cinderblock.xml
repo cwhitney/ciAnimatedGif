@@ -8,6 +8,7 @@
 	git="https://github.com/cwhitney/ciAnimatedGif"
   	>
 	<supports os="macosx" />
+	<supports os="ios" />
 	<supports os="msw" />
 	
 	<headerPattern>src/*.h</headerPattern>
