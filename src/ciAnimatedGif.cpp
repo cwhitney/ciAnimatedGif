@@ -32,7 +32,7 @@ void ciAnimatedGif::play()
 
 void ciAnimatedGif::seek(float pct)
 {
-    mCurFrame = (mFrameList.size() - 1) * clamp(pct, 0.0f, 1.0f);
+    mCurFrame = (mFrameList.size() - 1) * glm::clamp(pct, 0.0f, 1.0f);
 }
 
 void ciAnimatedGif::parseMetadata(ci::DataSourceRef data)
@@ -99,6 +99,11 @@ void ciAnimatedGif::printBit(uint8_t byte)
             << endl;
 }
 
+ci::gl::TextureRef   ciAnimatedGif::getTexture()
+{
+    return mCurTex;
+}
+
 void ciAnimatedGif::update()
 {
     while( getElapsedSeconds() > mNextFrameTime ){
@@ -107,14 +112,15 @@ void ciAnimatedGif::update()
             mCurFrame = 0;
         }
 
-        mNextFrameTime += mFrameTimes[clamp<int>(mCurFrame, 0, mFrameTimes.size()-1)];
+        mNextFrameTime += mFrameTimes[glm::clamp<int>(mCurFrame, 0, mFrameTimes.size()-1)];
     }
+    mCurTex = gl::Texture::create( *mFrameList[mCurFrame] );
 }
 
 void ciAnimatedGif::draw()
 {
     update();
-    mCurTex = gl::Texture::create( *mFrameList[mCurFrame] );
+
     gl::draw(mCurTex);
     
 }
