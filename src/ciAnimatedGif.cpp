@@ -48,8 +48,8 @@ void ciAnimatedGif::parseMetadata(ci::DataSourceRef data)
     }
     
     // LOGICAL SCREEN DESCRIPTOR
-    canvasWidth    = *(inPtr + 6) | *(inPtr + 7) << 8;
-    canvasHeight   = *(inPtr + 8) | *(inPtr + 9) << 8;
+    canvasWidth    = *(inPtr + 6) | *(inPtr + 7) << 8;  // Not guaranteed to be accurate. Often returns 0
+    canvasHeight   = *(inPtr + 8) | *(inPtr + 9) << 8;  // Not guaranteed to be accurate. Often returns 0
     
     uint8_t packed = *(inPtr + 10);
     
